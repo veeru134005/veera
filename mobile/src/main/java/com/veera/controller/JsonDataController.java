@@ -2,6 +2,8 @@ package com.veera.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,25 +16,37 @@ import com.veera.back.dto.Product;
 @Controller
 @RequestMapping("/json/data")
 public class JsonDataController {
+	
+	private static Logger log=LoggerFactory.getLogger(JsonDataController.class);
 
 	@Autowired
 	private ProductDAO productDAO;
 	
 
-	@RequestMapping("/admin/all/products")
+/*	@RequestMapping("/admin/all/products")
 	@ResponseBody
 	public List<Product> getAllProductsList() {		
 		return productDAO.list();
 				
-	}	
+	}	*/
 	
 	
 	@RequestMapping("/all/products")
 	@ResponseBody
 	public List<Product> getAllProducts() {
 		
+		log.info("hello i am from veeru");
+		
 		return productDAO.listActiveProducts();
 				
+	}
+	
+	@RequestMapping("/admin/all/products")
+	@ResponseBody
+	public List<Product> getAlltheProudctsForAdmin(){
+		
+		return productDAO.list();
+		
 	}
 	
 	@RequestMapping("/category/{id}/products")

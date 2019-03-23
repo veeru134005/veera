@@ -8,7 +8,7 @@
 
 		<c:forEach  items="${catagories}" var="ca">
 
-			<a href="${context}/show/category/${ca.id}/products" class="list-group-item">${ca.name}</a>
+			<a href="${context}/show/category/${ca.id}/products" class="list-group-item" id="a_${ca.name}">${ca.name}</a>
 
 		</c:forEach>
 

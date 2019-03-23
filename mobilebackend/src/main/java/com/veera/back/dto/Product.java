@@ -48,6 +48,19 @@ public class Product implements Serializable {
 	private int supplierId;
 	private int purchases;
 	private int views;
+	
+	//multipart form
+
+	@Transient
+	private MultipartFile file;
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	// default constructor
 	public Product() {
